@@ -21,4 +21,4 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo cm_enrc2b-userdebug
-add_lunch_combo full_enrc2b-eng
+add_lunch_combo cm_enrc2b-eng

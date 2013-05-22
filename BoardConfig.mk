@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ BOARD_SKIP_ANDROID_DOC_BUILD := true
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
-COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB
+COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB ##This uses HOX audio support
 
 #Camera
 USE_CAMERA_STUB := false
@@ -54,8 +54,9 @@ ENABLE_WEBGL := true
 
 # EGL settings
 USE_OPENGL_RENDERER := true
-BOARD_EGL_NEEDS_LEGACY_FB := true
 BOARD_EGL_CFG := device/htc/enrc2b/configs/egl.cfg
+# This is needed due to shitty Tegra support
+BOARD_EGL_NEEDS_LEGACY_FB := true
 
 # Graphics - Skia
 BOARD_USE_SKIA_LCDTEXT := true
@@ -92,19 +93,21 @@ BOARD_HAS_SDCARD_INTERNAL := true
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 # Kernel / Ramdisk
-TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
+#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
+TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
+
 TARGET_PROVIDES_INIT_TARGET_RC := true
-TARGET_USERIMAGES_USE_EXT4 := true
+
+#FileSystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1342177280
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2302672896
 BOARD_FLASH_BLOCK_SIZE := 4096
+TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
-
-# Try to build the kernel
-#TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file ## Unsure If Needed
 
 # dont build docs
 DISABLE_DROIDDOC := true
