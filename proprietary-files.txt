@@ -1,5 +1,4 @@
 bin/agpsd
-bin/akmd
 bin/atpipe_plain
 bin/cand
 bin/charging
@@ -15,7 +14,6 @@ bin/hostapd
 bin/htcbatt
 bin/htc_ebdlogd
 bin/htcfs
-bin/icudt48l.dat
 bin/IMCdownload
 bin/InjectionTool
 bin/logcat2
@@ -33,7 +31,6 @@ bin/sdcard
 bin/tf_daemon
 etc/firmware/bcm4329.hcd
 etc/firmware/bcm4330.hcd
-etc/firmware/BCM4334B0_002.001.013.0488.0605.hcd
 etc/firmware/BCM4334B0_002.001.013.0767.0777.hcd
 etc/firmware/fw_bcm4334_apsta.bin
 etc/firmware/fw_bcm4334.bin
@@ -152,7 +149,6 @@ lib/hw/power.default.so
 lib/hw/sensors.enrc2b.so
 lib/libaddrsdetection.so
 lib/libardrv_dynamic.so
-lib/libasound.so
 lib/libaudioavp.so
 lib/libBeautyChat.so
 lib/libbt-aptx-4.1.1.so
@@ -254,7 +250,6 @@ lib/libstagefrighthw.so
 lib/libsurfaceflinger.so
 lib/libsystem_server.so
 lib/libz.so
-proprietary-files.txt
 usr/icu/icudt48l.dat
 usr/idc/atmel-maxtouch.idc
 usr/idc/projector_input.idc
@@ -348,7 +343,6 @@ usr/srec/en-US/symbols
 vendor/firmware/libpn544_fw.so
 vendor/firmware/mfg.bin
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
