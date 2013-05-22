@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES := \
 
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/htc/enrc2b/dsp/AIC3008_REG_DualMic_XA.csv:system/etc/AIC3008_REG_DualMic_XA.csv \
     device/htc/enrc2b/dsp/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
     device/htc/enrc2b/dsp/DSP_number.txt:system/etc/DSP_number.txt \
@@ -239,5 +239,5 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_LOCALES += en_GB xhdpi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product-if-exists, vendor/htc/encr2b/enrc2b-vendor.mk)
+$(call inherit-product-if-exists, vendor/htc/enrc2b/enrc2b-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
