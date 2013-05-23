@@ -7,7 +7,8 @@ on init
 on boot
     write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
     write /sys/class/android_usb/android0/iProduct $ro.product.model
-
+    write /sys/class/android_usb/android0/idVendor 0bb4
+    
 # Used to disable USB when switching states
 on property:sys.usb.config=none
     stop adbd
@@ -19,14 +20,7 @@ on property:sys.usb.config=none
 # This should only be used during device bringup
 # and as a fallback if the USB manager fails to set a standard configuration
 on property:sys.usb.config=adb
-#   write /sys/class/android_usb/android0/enable 0
-#   write /sys/class/android_usb/android0/idVendor 18d1
-#   write /sys/class/android_usb/android0/idProduct D002
-#   write /sys/class/android_usb/android0/functions $sys.usb.config
-#   write /sys/class/android_usb/android0/enable 1
-#
-#   write /sys/devices/platform/android_usb/usb_function_switch 3
-    write /sys/class/android_usb/android0/f_adb/on 1
+    write /sys/devices/platform/android_usb/usb_function_switch 2
     start adbd
     setprop sys.usb.state $sys.usb.config
 
@@ -41,21 +35,11 @@ on property:sys.usb.config=mass_storage
 
 # USB accessory configuration
 on property:sys.usb.config=accessory
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d00
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/enable 1
     write /sys/devices/platform/android_usb/usb_function_switch 8192
     setprop sys.usb.state $sys.usb.config
 
 # USB accessory configuration, with adb
 on property:sys.usb.config=accessory,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 18d1
-#    write /sys/class/android_usb/android0/idProduct 2d01
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/enable 1
     start adbd
     write /sys/devices/platform/android_usb/usb_function_switch 8194
     setprop sys.usb.state $sys.usb.config
@@ -63,25 +47,14 @@ on property:sys.usb.config=accessory,adb
 # Used to set USB configuration at boot and to switch the configuration
 # when changing the default configuration
 on property:persist.sys.usb.config=*
+	setprop sys.usb.config none
     setprop sys.usb.config $persist.sys.usb.config
 
 on property:sys.usb.config=rndis
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 0bb4
-#    write /sys/class/android_usb/android0/idProduct 0ffe
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/bDeviceClass 224
-#    write /sys/class/android_usb/android0/enable 1
     write /sys/devices/platform/android_usb/usb_function_switch 4
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=rndis,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 0bb4
-#    write /sys/class/android_usb/android0/idProduct 0ffc
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/bDeviceClass 224
-#    write /sys/class/android_usb/android0/enable 1
     write /sys/devices/platform/android_usb/usb_function_switch 6
     start adbd
     setprop sys.usb.state $sys.usb.config
@@ -91,59 +64,55 @@ on property:sys.usb.config=cdc_ethernet
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=mtp
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 0bb4
-#    write /sys/class/android_usb/android0/idProduct 0c93
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/enable 1
     write /sys/devices/platform/android_usb/usb_function_switch 128
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=mtp,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 0bb4
-#    write /sys/class/android_usb/android0/idProduct 0c93
-#    write /sys/class/android_usb/android0/functions $sys.usb.config
-#    write /sys/class/android_usb/android0/enable 1
     write /sys/devices/platform/android_usb/usb_function_switch 130
     start adbd
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=ptp
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0955
-#TODO: should this be a new product #
-    write /sys/class/android_usb/android0/idProduct 7102
-    write /sys/class/android_usb/android0/functions $sys.usb.config
-    write /sys/class/android_usb/android0/enable 1
+    write /sys/devices/platform/android_usb/usb_function_switch 128
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=ptp,adb
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0955
-#TODO: should this be a new product #
-    write /sys/class/android_usb/android0/idProduct 7100
-    write /sys/class/android_usb/android0/functions $sys.usb.config
-    write /sys/class/android_usb/android0/enable 1
+    write /sys/devices/platform/android_usb/usb_function_switch 130
     start adbd
     setprop sys.usb.state $sys.usb.config
-#`` HTC_IPT
-# for USB IPT
-service udhcpd0 /system/bin/logwrapper /system/bin/udhcpd
-	disabled
-	oneshot
 
-service netsharing0_on /system/bin/netsharing net on
-	disabled
-	oneshot
+# USB accessory configuration
+on property:sys.usb.config=accessory
+	write /sys/devices/platform/android_usb/usb_function_switch 8192
+    setprop sys.usb.state ${sys.usb.config}
 
-service netsharing0_off /system/bin/netsharing net off
-	disabled
-	oneshot
+# USB accessory configuration, with adb
+on property:sys.usb.config=accessory,adb
+    start adbd
+	write /sys/devices/platform/android_usb/usb_function_switch 8194
+    setprop sys.usb.state ${sys.usb.config}
+    
+# audio accessory configuration
+on property:sys.usb.config=audio_source
+    write /sys/devices/platform/android_usb/usb_function_switch 16384
+    setprop sys.usb.state ${sys.usb.config}
 
-service netsharing0_pass /system/bin/netsharing net_pass on
-	disabled
-	oneshot
+# audio accessory configuration, with adb
+on property:sys.usb.config=audio_source,adb
+    write /sys/devices/platform/android_usb/usb_function_switch 16386
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+# USB and audio accessory configuration
+on property:sys.usb.config=accessory,audio_source
+    write /sys/devices/platform/android_usb/usb_function_switch 24576
+    setprop sys.usb.state ${sys.usb.config}
+
+# USB and audio accessory configuration, with adb
+on property:sys.usb.config=accessory,audio_source,adb
+    write /sys/devices/platform/android_usb/usb_function_switch 24578
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.projector.enable=1
     write /sys/class/android_usb/f_projector/on 1
