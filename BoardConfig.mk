@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,13 +19,14 @@ BOARD_SKIP_ANDROID_DOC_BUILD := true
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
-COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB ##This uses HOX audio support
+COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB
 
 #Camera
 USE_CAMERA_STUB := false
 CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
 BOARD_HAVE_HTC_FFC := true
 BOARD_CAMERA_HAVE_ISO := true
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 
 # Board 
 TARGET_BOARD_PLATFORM := tegra
@@ -54,9 +55,8 @@ ENABLE_WEBGL := true
 
 # EGL settings
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/htc/enrc2b/configs/egl.cfg
-# This is needed due to shitty Tegra support
 BOARD_EGL_NEEDS_LEGACY_FB := true
+BOARD_EGL_CFG := device/htc/enrc2b/configs/egl.cfg
 
 # Graphics - Skia
 BOARD_USE_SKIA_LCDTEXT := true
@@ -78,7 +78,6 @@ WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4334_p2p.bin"
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/enrc2b/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/enrc2b/bluetooth/vnd_enrc2b.txt
 
 # HTC ril compatability
 BOARD_USE_NEW_LIBRIL_HTC := true
@@ -95,20 +94,24 @@ COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 # Kernel / Ramdisk
 #TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
-
 TARGET_PROVIDES_INIT_TARGET_RC := true
-
-#FileSystem
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1342177280
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2302672896
 BOARD_FLASH_BLOCK_SIZE := 4096
-TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file ## Unsure If Needed
+# Boot/Recovery image settings
+BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
+
+# Try to build the kernel
+TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
+TARGET_KERNEL_CONFIG := blade_cm10_oc_cpuquiet_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
