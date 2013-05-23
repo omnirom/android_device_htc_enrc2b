@@ -1,5 +1,6 @@
 # Specify phone tech before including full_phone
 $(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, device/htc/enrc2b/cm_enrc2b.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := enrc2b
