@@ -160,7 +160,6 @@ PRODUCT_PACKAGES += \
     Torch \
     CellBroadcastReceiver \
     EndeavoruParts
-    CMTorch
 
 # Misc
 PRODUCT_PACKAGES += \
