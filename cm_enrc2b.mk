@@ -94,11 +94,6 @@ PRODUCT_COPY_FILES += \
 # in /system/lib/modules are equal to /lib/modules
 PRODUCT_COPY_FILES += \
         device/htc/enrc2b/scripts/01-module-check:system/etc/init.d/01-module-check
-   
-# patched zram scripts
-PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/scripts/compcache:system/bin/compcache \
-    device/htc/enrc2b/scripts/handle_compcache:system/bin/handle_compcache
 
 # Hostapd
 PRODUCT_COPY_FILES += \
