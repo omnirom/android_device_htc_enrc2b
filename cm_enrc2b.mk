@@ -98,8 +98,8 @@ PRODUCT_COPY_FILES += \
 # properitary ones 
 # This is needed for audio to work
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/prebuil/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
-		device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
+    device/htc/enrc2b/prebuilt/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
+    device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
 
 # Vold.fstab
 PRODUCT_COPY_FILES += \
