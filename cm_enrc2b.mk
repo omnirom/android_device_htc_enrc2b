@@ -61,7 +61,46 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/configs/enctune.conf:system/etc/enctune.conf \
     device/htc/enrc2b/configs/sysctl.conf:system/etc/sysctl.conf \
     device/htc/enrc2b/configs/audio_effects.conf:system/etc/audio_effects.conf
-   
+
+  # Prebuilt Alsa configs
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
+    device/htc/enrc2b/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
+    device/htc/enrc2b/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
+
+# Input device configeration files
+# for remapped APP_SWITCH to MENU
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+
+# properitary ones
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/htc/enrc2b/proprietary/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
+    device/htc/enrc2b/proprietary/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+    device/htc/enrc2b/proprietary/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc \
+    device/htc/enrc2b/proprietary/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc
+
+# properitary ones 
+# This is needed for audio to work
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/proprietary/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
+	device/htc/enrc2b/proprietary/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
+
 # Vold.fstab
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/vold.fstab:system/etc/vold.fstab
