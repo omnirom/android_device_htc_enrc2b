@@ -100,6 +100,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/prebuilt/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
     device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
+    device/htc/enrc2b/prebuilt/lib/libasound.so:system/lib/libasound.so
 
 # Vold.fstab
 PRODUCT_COPY_FILES += \
