@@ -154,7 +154,6 @@ lib/libBeautyChat.so
 lib/libbt-aptx-4.1.1.so
 lib/libcall_volume.so
 lib/libcameraasd.so
-lib/libcamera_client.so
 lib/libcameraface.so
 lib/libcamerapp.so
 lib/libcameraservice.so
@@ -174,7 +173,6 @@ lib/libhtc_ril.so
 lib/libhtcsunny2engine.so
 lib/libhtcsunnyengine.so
 lib/libhtcsurfaces.so
-lib/liblog.so
 lib/libmllite.so
 lib/libmlplatform.so
 lib/libmpl_jni.so
@@ -247,7 +245,6 @@ lib/libscalado.so
 lib/libscaladoutil.so
 lib/libsensors_mpl.so
 lib/libstagefrighthw.so
-lib/libsurfaceflinger.so
 lib/libsystem_server.so
 lib/libz.so
 usr/icu/icudt48l.dat
