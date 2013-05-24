@@ -64,23 +64,23 @@ PRODUCT_COPY_FILES += \
 
   # Prebuilt Alsa configs
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
-    device/htc/enrc2b/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
-    device/htc/enrc2b/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
+    device/htc/enrc2b/prebuilt/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
+    device/htc/enrc2b/prebuilt/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
 
 # Input device configeration files
 # for remapped APP_SWITCH to MENU
@@ -89,17 +89,17 @@ PRODUCT_COPY_FILES += \
 
 # properitary ones
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/htc/enrc2b/proprietary/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
-    device/htc/enrc2b/proprietary/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-    device/htc/enrc2b/proprietary/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc \
-    device/htc/enrc2b/proprietary/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc
+    device/htc/enrc2b/prebuilt/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/htc/enrc2b/prebuilt/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
+    device/htc/enrc2b/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+    device/htc/enrc2b/prebuilt/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc \
+    device/htc/enrc2b/prebuilt/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc
 
 # properitary ones 
 # This is needed for audio to work
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/proprietary/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
-	device/htc/enrc2b/proprietary/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
+    device/htc/enrc2b/prebuil/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
+		device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
 
 # Vold.fstab
 PRODUCT_COPY_FILES += \
@@ -110,23 +110,6 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
     device/htc/enrc2b/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
-# properitary ones
-#PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/htc/enrc2b/proprietary/usr/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl \
-    device/htc/enrc2b/proprietary/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-    device/htc/enrc2b/proprietary/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc \
-    device/htc/enrc2b/proprietary/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc
-
-# Any prebuilt kernel modules
-# maxwen: MUST BE BLADE MODULES!!!!
-#PRODUCT_COPY_FILES += \
-#        device/htc/enrc2b/modules/baseband_usb_chr.ko:system/lib/modules/baseband_usb_chr.ko \
-#        device/htc/enrc2b/modules/baseband-xmm-power2.ko:system/lib/modules/baseband-xmm-power2.ko \
-#        device/htc/enrc2b/modules/cdc-acm.ko:system/lib/modules/cdc-acm.ko \
-#        device/htc/enrc2b/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-#        device/htc/enrc2b/modules/raw_ip_net.ko:system/lib/modules/raw_ip_net.ko \
-#        device/htc/enrc2b/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
 # maxwen: init.d scripts that makes sure kernel modules 
 # in /system/lib/modules are equal to /lib/modules
@@ -145,6 +128,10 @@ PRODUCT_PACKAGES += \
 # video
 PRODUCT_PACKAGES += \
 	libstagefrighthw
+
+# camera wrapper 
+PRODUCT_PACKAGES += \
+	camera.tegra
 	
 # lights
 PRODUCT_PACKAGES += \
