@@ -85,7 +85,7 @@ PRODUCT_COPY_FILES += \
 # Input device configeration files
 # for remapped APP_SWITCH to MENU
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
+    device/htc/enrc2b/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 # properitary ones
 PRODUCT_COPY_FILES += \
@@ -104,12 +104,6 @@ PRODUCT_COPY_FILES += \
 # Vold.fstab
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/vold.fstab:system/etc/vold.fstab
-
-# Input device configeration files
-# for remapped APP_SWITCH to MENU
-#PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
-
 
 # maxwen: init.d scripts that makes sure kernel modules 
 # in /system/lib/modules are equal to /lib/modules
