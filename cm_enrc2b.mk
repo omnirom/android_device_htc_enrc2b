@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES := \
 
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     device/htc/enrc2b/dsp/AIC3008_REG_DualMic_XA.csv:system/etc/AIC3008_REG_DualMic_XA.csv \
     device/htc/enrc2b/dsp/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
     device/htc/enrc2b/dsp/DSP_number.txt:system/etc/DSP_number.txt \
@@ -58,7 +58,6 @@ PRODUCT_COPY_FILES := \
     device/htc/enrc2b/configs/calibration:system/etc/calibration \
     device/htc/enrc2b/configs/asound.conf:system/etc/asound.conf \
     device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    device/htc/enrc2b/configs/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
     device/htc/enrc2b/configs/enctune.conf:system/etc/enctune.conf \
     device/htc/enrc2b/configs/sysctl.conf:system/etc/sysctl.conf \
     device/htc/enrc2b/configs/audio_effects.conf:system/etc/audio_effects.conf
