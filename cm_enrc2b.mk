@@ -40,9 +40,9 @@ PRODUCT_COPY_FILES := \
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/dsp/AIC3008_REG_DualMic_XA.csv:system/etc/AIC3008_REG_DualMic_XA.csv \
-    device/htc/enrc2b/dsp/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
-    device/htc/enrc2b/dsp/DSP_number.txt:system/etc/DSP_number.txt \
+    device/htc/enrc2b/prebuilt/dsp/AIC3008_REG_DualMic_XA.csv:system/etc/AIC3008_REG_DualMic_XA.csv \
+    device/htc/enrc2b/prebuilt/dsp/AIC3008_REG_DualMic.csv:system/etc/AIC3008_REG_DualMic.csv \
+    device/htc/enrc2b/prebuilt/dsp/DSP_number.txt:system/etc/DSP_number.txt \
     device/htc/enrc2b/configs/nvcamera.conf:system/etc/nvcamera.conf \
     device/htc/enrc2b/configs/nvcamera_2nd.conf:system/etc/nvcamera_2nd.conf \
     device/htc/enrc2b/configs/media_profiles.xml:system/etc/media_profiles.xml \
