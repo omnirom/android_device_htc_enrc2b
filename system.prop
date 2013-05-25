@@ -100,3 +100,6 @@ persist.demo.hdmirotation=portrait
 
 #fw.power_user_switcher=true
 
+dalvik.vm.heapgrowthlimit=96m
+dalvik.vm.heapminfree=512k
+
