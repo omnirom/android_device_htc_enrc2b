@@ -99,8 +99,81 @@ PRODUCT_COPY_FILES += \
 # This is needed for audio to work
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/prebuilt/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
-    device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so
+    device/htc/enrc2b/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so \
     device/htc/enrc2b/prebuilt/lib/libasound.so:system/lib/libasound.so
+
+# Sound
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/prebuilt/soundimage/CodecDSPID.txt:system/etc/soundimage/CodecDSPID.txt \
+    device/htc/enrc2b/prebuilt/soundimage/CodecDSPID_XA.txt:system/etc/soundimage/CodecDSPID_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_BT_CarMode.txt:system/etc/soundimage/Sound_BT_CarMode.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_FM_HP_XA.txt:system/etc/soundimage/Sound_FM_HP_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_FM_SPK_XA.txt:system/etc/soundimage/Sound_FM_SPK_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Note_Recording.txt:system/etc/soundimage/Sound_Note_Recording.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_DOCK.txt:system/etc/soundimage/Sound_Original_DOCK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_HP.txt:system/etc/soundimage/Sound_Original_HP.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_HP_XA.txt:system/etc/soundimage/Sound_Original_HP_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_SPK_RING.txt:system/etc/soundimage/Sound_Original_SPK_RING.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_SPK_RING_XA.txt:system/etc/soundimage/Sound_Original_SPK_RING_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original_SPK_XA.txt:system/etc/soundimage/Sound_Original_SPK_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_BT.txt:system/etc/soundimage/Sound_Phone_Original_BT.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_DOCK.txt:system/etc/soundimage/Sound_Phone_Original_DOCK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_HAC.txt:system/etc/soundimage/Sound_Phone_Original_HAC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_SPK_XA.txt:system/etc/soundimage/Sound_Phone_Original_SPK_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Phone_Original_TTY.txt:system/etc/soundimage/Sound_Phone_Original_TTY.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_SpeakerVR_Recording.txt:system/etc/soundimage/Sound_SpeakerVR_Recording.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voice_Recording_AMR.txt:system/etc/soundimage/Sound_Voice_Recording_AMR.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_BT.txt:system/etc/soundimage/Sound_Voip_Original_BT.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_BT_AEC.txt:system/etc/soundimage/Sound_Voip_Original_BT_AEC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_HP.txt:system/etc/soundimage/Sound_Voip_Original_HP.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_HP_AEC.txt:system/etc/soundimage/Sound_Voip_Original_HP_AEC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_REC.txt:system/etc/soundimage/Sound_Voip_Original_REC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_REC_AEC.txt:system/etc/soundimage/Sound_Voip_Original_REC_AEC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_SPK.txt:system/etc/soundimage/Sound_Voip_Original_SPK.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_SPK_XA.txt:system/etc/soundimage/Sound_Voip_Original_SPK_XA.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_SPK_AEC.txt:system/etc/soundimage/Sound_Voip_Original_SPK_AEC.txt \
+    device/htc/enrc2b/prebuilt/soundimage/Sound_Voip_Original_SPK_AEC_XA.txt:system/etc/soundimage/Sound_Voip_Original_SPK_AEC_XA.txt
+
+# audio tfa - actually useless but keep it 
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/prebuilt/tfa/fm.config:system/etc/tfa/fm.config \
+    device/htc/enrc2b/prebuilt/tfa/fm.eq:system/etc/tfa/fm.eq \
+    device/htc/enrc2b/prebuilt/tfa/fm.preset:system/etc/tfa/fm.preset \
+    device/htc/enrc2b/prebuilt/tfa/fm.speaker:system/etc/tfa/fm.speaker \
+    device/htc/enrc2b/prebuilt/tfa/playback.config:system/etc/tfa/playback.config \
+    device/htc/enrc2b/prebuilt/tfa/playback.eq:system/etc/tfa/playback.eq \
+    device/htc/enrc2b/prebuilt/tfa/playback.preset:system/etc/tfa/playback.preset \
+    device/htc/enrc2b/prebuilt/tfa/playback.speaker:system/etc/tfa/playback.speaker \
+    device/htc/enrc2b/prebuilt/tfa/recorder.config:system/etc/tfa/recorder.config \
+    device/htc/enrc2b/prebuilt/tfa/recorder.eq:system/etc/tfa/recorder.eq \
+    device/htc/enrc2b/prebuilt/tfa/recorder.preset:system/etc/tfa/recorder.preset \
+    device/htc/enrc2b/prebuilt/tfa/recorder.speaker:system/etc/tfa/recorder.speaker \
+    device/htc/enrc2b/prebuilt/tfa/ReleaseNote.txt:system/etc/tfa/ReleaseNote.txt \
+    device/htc/enrc2b/prebuilt/tfa/ring.config:system/etc/tfa/ring.config \
+    device/htc/enrc2b/prebuilt/tfa/ring.eq:system/etc/tfa/ring.eq \
+    device/htc/enrc2b/prebuilt/tfa/ring.preset:system/etc/tfa/ring.preset \
+    device/htc/enrc2b/prebuilt/tfa/ring.speaker:system/etc/tfa/ring.speaker \
+    device/htc/enrc2b/prebuilt/tfa/tcoef.speaker:system/etc/tfa/tcoef.speaker \
+    device/htc/enrc2b/prebuilt/tfa/tfa9887.config:system/etc/tfa/tfa9887.config \
+    device/htc/enrc2b/prebuilt/tfa/tfa9887.patch:system/etc/tfa/tfa9887.patch \
+    device/htc/enrc2b/prebuilt/tfa/tfa9887.speaker:system/etc/tfa/tfa9887.speaker \
+    device/htc/enrc2b/prebuilt/tfa/video.config:system/etc/tfa/video.config \
+    device/htc/enrc2b/prebuilt/tfa/video.eq:system/etc/tfa/video.eq \
+    device/htc/enrc2b/prebuilt/tfa/video.preset:system/etc/tfa/video.preset \
+    device/htc/enrc2b/prebuilt/tfa/video.speaker:system/etc/tfa/video.speaker \
+    device/htc/enrc2b/prebuilt/tfa/voice.config:system/etc/tfa/voice.config \
+    device/htc/enrc2b/prebuilt/tfa/voice.eq:system/etc/tfa/voice.eq \
+    device/htc/enrc2b/prebuilt/tfa/voice.preset:system/etc/tfa/voice.preset \
+    device/htc/enrc2b/prebuilt/tfa/voice.speaker:system/etc/tfa/voice.speaker
 
 # Vold.fstab
 PRODUCT_COPY_FILES += \
