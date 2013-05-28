@@ -92,7 +92,7 @@ on boot
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
 # Load modules while booting 
-    insmod /lib/modules/bcmdhd.ko
+    insmod /system/lib/modules/bcmdhd.ko
     #insmod /lib/modules/baseband-xmm-power2.ko
     #insmod /lib/modules/baseband_usb_chr.ko
     #insmod /lib/modules/cdc-acm.ko
