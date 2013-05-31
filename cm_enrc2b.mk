@@ -327,4 +327,4 @@ PRODUCT_LOCALES += en_GB xhdpi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, vendor/htc/enrc2b/enrc2b-vendor.mk)
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, device/htc/enrc2b/phone-xhdpi-1024-dalvik-heap.mk) ## Needs a specific config for the device to boot - Lloir
