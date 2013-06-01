@@ -179,11 +179,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/vold.fstab:system/etc/vold.fstab
 
-# maxwen: init.d scripts that makes sure kernel modules 
-# in /system/lib/modules are equal to /lib/modules
-PRODUCT_COPY_FILES += \
-        device/htc/enrc2b/scripts/01-module-check:system/etc/init.d/01-module-check
-
 # Hostapd
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/hostap/hostapd:system/bin/hostapd
