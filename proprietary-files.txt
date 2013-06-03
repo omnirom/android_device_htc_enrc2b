@@ -1,3 +1,4 @@
+bin/akmd
 bin/agpsd
 bin/atpipe_plain
 bin/cand
