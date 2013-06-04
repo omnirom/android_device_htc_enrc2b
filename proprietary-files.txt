@@ -2,7 +2,6 @@ bin/akmd
 bin/agpsd
 bin/atpipe_plain
 bin/cand
-bin/charging
 bin/DxDrmServerIpc
 bin/fild
 bin/getnvm.sh
@@ -28,9 +27,6 @@ bin/poweron_modem_fls.sh
 bin/poweron_modem_hboot.sh
 bin/rild
 bin/tf_daemon
-etc/firmware/bcm4329.hcd
-etc/firmware/bcm4330.hcd
-etc/firmware/BCM4334B0_002.001.013.0767.0777.hcd
 etc/firmware/fw_bcm4334_apsta.bin
 etc/firmware/fw_bcm4334.bin
 etc/firmware/fw_bcm4334_p2p.bin
@@ -77,7 +73,6 @@ lib/libEGL.so
 lib/libGLES_trace.so
 lib/libGLESv1_CM.so
 lib/libGLESv2.so
-lib/libglib.so
 lib/libhtccamera.so
 lib/libhtc_dis.so
 lib/libhtc-opt2.so
@@ -160,10 +155,6 @@ lib/libsensors_mpl.so
 lib/libsystem_server.so
 vendor/firmware/libpn544_fw.so
 vendor/firmware/mfg.bin
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
 vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/left_eye-y0-yi45-p0-pi45-r0-ri20.lg_32/full_model.bin
 vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/nose_base-y0-yi45-p0-pi45-r0-ri20.lg_32/full_model.bin
 vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/right_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-2/full_model.bin
