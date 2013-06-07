@@ -99,3 +99,4 @@ ro.hdmi.enable=true
 persist.demo.hdmirotation=portrait
 
 #fw.power_user_switcher=true
+service.htc_ebdlogd.enable=1
