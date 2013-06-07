@@ -26,6 +26,7 @@ bin/poweron_modem_fls.sh
 bin/poweron_modem_hboot.sh
 bin/rild
 bin/tf_daemon
+etc/firmware/BCM4334B0_002.001.013.0767.0777.hcd
 etc/firmware/fw_bcm4334_apsta.bin
 etc/firmware/fw_bcm4334.bin
 etc/firmware/fw_bcm4334_p2p.bin
