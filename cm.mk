@@ -9,8 +9,7 @@ PRODUCT_RELEASE_NAME := enrc2b
 TARGET_BOOTANIMATION_PRELOAD := true
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_BOOTANIMATION_NAME := 720
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
