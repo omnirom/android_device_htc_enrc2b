@@ -13,9 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# common tegra3 configs
+$(call inherit-product, device/htc/tegra3-common/tegra3.mk)
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-DEVICE_PACKAGE_OVERLAYS := device/htc/enrc2b/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 #Recovery
 
@@ -188,18 +191,6 @@ PRODUCT_PACKAGES += \
 	hostapd_cli \
         calibrator
 
-# video
-PRODUCT_PACKAGES += \
-	libstagefrighthw
-
-# camera wrapper 
-PRODUCT_PACKAGES += \
-	camera.tegra
-	
-# lights
-PRODUCT_PACKAGES += \
-	lights.tegra
-
 # power
 PRODUCT_PACKAGES += \
 	power.tegra
@@ -221,10 +212,6 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     libinvensense_mpl
 
-# iw
-PRODUCT_PACKAGES += \
-    iw 
-
 # pollyd
 PRODUCT_PACKAGES += \
     Polly \
@@ -241,8 +228,7 @@ PRODUCT_PACKAGES += \
     PinyinIME \
     PerformanceTool \
     Torch \
-    CellBroadcastReceiver \
-    EndeavoruParts
+    CellBroadcastReceiver 
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -271,26 +257,6 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
         system/extras/bugmailer/send_bug:system/bin/send_bug    
 endif
 
-# Permissions
-PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-        frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-        frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-        frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-        frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-        frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-        frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-        frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-        frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-        frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-        frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-        frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-        frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-	    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.com.google.locationfeatures=1 \
@@ -307,7 +273,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-	    persist.tegra.nvmmlite=1 \
+        persist.tegra.nvmmlite=1 \
         ro.vendor.extension_library=/system/lib/libhtc-opt2.so \
         tf.enable=y
 

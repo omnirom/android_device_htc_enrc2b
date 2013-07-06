@@ -12,7 +12,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+# inherit from tegra3-common
+-include device/htc/tegra3-common/BoardConfigCommon.mk
+
 # Skip droiddoc build to save build time
 BOARD_SKIP_ANDROID_DOC_BUILD := true
 
