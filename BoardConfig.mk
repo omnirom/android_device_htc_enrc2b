@@ -113,7 +113,8 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 
 # Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
-TARGET_KERNEL_CONFIG := blade_cm10_cpuquiet_defconfig
+#TARGET_KERNEL_CONFIG := blade_cm10_cpuquiet_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
