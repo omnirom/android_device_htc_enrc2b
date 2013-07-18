@@ -32,6 +32,10 @@ WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcm4334.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcm4334_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4334_p2p.bin"
 
+# EGL settings
+USE_OPENGL_RENDERER := true
+BOARD_EGL_NEEDS_LEGACY_FB := true
+
 # BT
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/enrc2b/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/enrc2b/bluetooth/vnd_enrc2b.txt
@@ -68,6 +72,17 @@ TARGET_KERNEL_CONFIG := blade_cm10_oc_cpuquiet_defconfig
 # dont build docs
 DISABLE_DROIDDOC := true
 
-HAVE_SELINUX := false
+HAVE_SELINUX := true
 
 ifeq ($(HAVE_SELINUX),true)
+# SE Linux policies
+BOARD_SEPOLICY_DIRS := \
+    device/htc/enrc2b/selinux
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    file.te \
+    device.te \
+    domain.te
+
+endif
