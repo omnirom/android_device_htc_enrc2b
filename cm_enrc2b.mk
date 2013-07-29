@@ -246,15 +246,6 @@ PRODUCT_PACKAGES += \
     sdcard \
     libmtp
 
-# for bugmailer
-ifneq ($(TARGET_BUILD_VARIANT),user)
-    PRODUCT_PACKAGES += send_bug
-    PRODUCT_COPY_FILES += \
-        system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-        system/extras/bugmailer/send_bug:system/bin/send_bug    
-endif
-
-
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.com.google.locationfeatures=1 \
         ro.setupwizard.enable_bypass=1 \
