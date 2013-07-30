@@ -38,6 +38,7 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/ramdisk/fstab.enrc2b:root/fstab.enrc2b
 
 
+
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/dsp/AIC3008_REG_DualMic_XA.csv:system/etc/AIC3008_REG_DualMic_XA.csv \
@@ -175,10 +176,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/tfa/voice.preset:system/etc/tfa/voice.preset \
     $(LOCAL_PATH)/prebuilt/tfa/voice.speaker:system/etc/tfa/voice.speaker
 
-# Vold.fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab
-
 # Hostapd
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/hostap/hostapd:system/bin/hostapd
@@ -221,9 +218,7 @@ PRODUCT_PACKAGES += \
     libcyanogen-dsp \
     libncurses \
     bash \
-    CMFileManager \
     PinyinIME \
-    PerformanceTool \
     Torch \
     CellBroadcastReceiver 
 
@@ -254,10 +249,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.dexopt-flags=m=y \
         persist.sys.usb.config=mtp,adb \
         ro.adb.secure=0
-
-# Cell Broadcasts
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.cellbroadcast.emergencyids=0-65534 
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
