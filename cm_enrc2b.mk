@@ -213,14 +213,11 @@ PRODUCT_PACKAGES += \
 
 # other apps
 PRODUCT_PACKAGES += \
-    Apollo \
-    DSPManager \
     libcyanogen-dsp \
     libncurses \
     bash \
     PinyinIME \
-    Torch \
-    CellBroadcastReceiver 
+    Torch 
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -267,7 +264,7 @@ PRODUCT_LOCALES += en_GB xhdpi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, vendor/htc/enrc2b/enrc2b-vendor.mk)
-$(call inherit-product, $(LOCAL_PATH)/phone-xhdpi-1024-dalvik-heap.mk) ## Needs a specific config for the device to boot - Lloir
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # common tegra3-HOX+ configs
 $(call inherit-product, device/htc/tegra3-common/tegra3.mk)
