@@ -68,4 +68,17 @@ TARGET_KERNEL_CONFIG := blade_cm10_oc_cpuquiet_defconfig
 # dont build docs
 DISABLE_DROIDDOC := true
 
+HAVE_SELINUX := true
 
+ifeq ($(HAVE_SELINUX),true)
+
+BOARD_SEPOLICY_DIRS := \
+    device/htc/enrc2b/selinux
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    file.te \
+    device.te \
+    domain.te
+
+endif
