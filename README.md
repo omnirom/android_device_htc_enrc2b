@@ -1,16 +1,11 @@
-android_device_htc_enrc2b_cwmr
-==============================
+Device configuration for the HTC ONEX+ (aka Enrc2b)
 
-ClockWorkMod recovery device tree for the ENRC2B
+Copyright (C) 2012 Robert Shannon
 
-Working
+Copyright (C) CyanogenMod
 
-touch
-buttons
-display
-adb
-off mode charging
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-not working
-
-mount sdcard (internal partition)
+http://www.apache.org/licenses/LICENSE-2.0
