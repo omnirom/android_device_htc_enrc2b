@@ -15,6 +15,8 @@
 # inherit from tegra3-common
 -include device/htc/tegra3-common/BoardConfigCommon.mk
 
+TARGET_BOOTLOADER_BOARD_NAME := enrc2b
+
 # Optimization build flags
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
@@ -50,17 +52,16 @@ BOARD_VOLD_MAX_PARTITIONS := 22
 BOARD_HAS_SDCARD_INTERNAL := true
 
 # Kernel / Ramdisk
-#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1342177280
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 2302672896
-BOARD_FLASH_BLOCK_SIZE := 4096
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Boot/Recovery image settings
-BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
@@ -71,10 +72,10 @@ TARGET_KERNEL_CONFIG := blade_cm10_oc_cpuquiet_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
+TARGET_PREBUILT_KERNEL := device/htc/enrc2b/recovery/recovery-kernel
 
-HAVE_SELINUX := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 
-ifeq ($(HAVE_SELINUX),true)
 # SE Linux policies
 BOARD_SEPOLICY_DIRS := \
     device/htc/enrc2b/selinux
@@ -84,5 +85,3 @@ BOARD_SEPOLICY_UNION := \
     file.te \
     device.te \
     domain.te
-
-endif
