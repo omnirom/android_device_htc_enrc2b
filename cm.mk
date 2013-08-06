@@ -26,3 +26,15 @@ PRODUCT_MODEL := One X+
 PRODUCT_MANUFACTURER := HTC
 
 CM_BUILDTYPE := NIGHTLY
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/htc/enrc2b/device_enrc2b.mk)
+
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := enrc2b
+PRODUCT_NAME := cm_enrc2b
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := enrc2b
+PRODUCT_MANUFACTURER := htc
