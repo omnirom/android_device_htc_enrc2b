@@ -6,6 +6,10 @@ on init
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
+    
+    # TEMP MUST REMOVE WHEN A PROPER FIX HAS BEEN FOUND
+
+    mkdir /cache/dalvik-cache 777 system system
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
