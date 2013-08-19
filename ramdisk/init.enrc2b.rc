@@ -515,7 +515,6 @@ on property:ro.hdmi.enable=true
     chown system system /sys/class/leds/red/device/grpfreq
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/leds/flashlight/brightness
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/kernel/ipv4/tcp_wmem_min
     chown system system /sys/kernel/ipv4/tcp_wmem_def
