@@ -53,8 +53,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 # Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
-TARGET_KERNEL_CONFIG := blade_cm10_oc_cpuquiet_defconfig
-#TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
@@ -65,11 +64,11 @@ TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
 RECOVERY_FSTAB_VERSION := 2 
 
 # SE Linux policies
-#BOARD_SEPOLICY_DIRS := \
-#    device/htc/enrc2b/selinux
+BOARD_SEPOLICY_DIRS := \
+    device/htc/enrc2b/selinux
 
-#BOARD_SEPOLICY_UNION := \
-#    file_contexts \
-#    file.te \
-#    device.te \
-#    domain.te
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    file.te \
+    device.te \
+    domain.te

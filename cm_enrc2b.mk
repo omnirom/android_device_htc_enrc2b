@@ -17,18 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-LOCAL_PATH := device/htc/enrc2b
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 #Recovery
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
     $(LOCAL_PATH)/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
@@ -45,8 +34,6 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.enrc2b.rc:root/ueventd.enrc2b.rc \
     $(LOCAL_PATH)/ramdisk/fstab.enrc2b:root/fstab.enrc2b
-
-
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
 PRODUCT_COPY_FILES += \
@@ -104,13 +91,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     $(LOCAL_PATH)/prebuilt/usr/idc/tv-touchscreen.idc:system/usr/idc/tv-touchscreen.idc \
     $(LOCAL_PATH)/prebuilt/usr/idc/projector_input.idc:system/usr/idc/projector_input.idc
-
-# properitary ones 
-# This is needed for audio to work
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/lib/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
-    $(LOCAL_PATH)/prebuilt/lib/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so \
-    $(LOCAL_PATH)/prebuilt/lib/libasound.so:system/lib/libasound.so
 
 # Sound
 PRODUCT_COPY_FILES += \
@@ -185,19 +165,31 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/tfa/voice.preset:system/etc/tfa/voice.preset \
     $(LOCAL_PATH)/prebuilt/tfa/voice.speaker:system/etc/tfa/voice.speaker
 
-# Hostapd
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/hostap/hostapd:system/bin/hostapd
+#Audio packages
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    libtinyalsa \
+    libaudioutils \
+    libinvensense_mpl
 
-    
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs \
+    sdcard \
+    libmtp
+
+# Hostapd   
 PRODUCT_PACKAGES += \
     hostapd_cli \
-        calibrator
+    calibrator
 
-# power
+# Live Wallpapers
 PRODUCT_PACKAGES += \
-    power.tegra
-        
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers
+
 #NFC
 PRODUCT_PACKAGES += \
     libnfc \
@@ -207,54 +199,29 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-# Audio
+# Other apps
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    libtinyalsa \
-    libaudioutils \
-    libinvensense_mpl
+    Torch \
+    com.android.future.usb.accessory
 
-# other apps
+# Power
 PRODUCT_PACKAGES += \
-    libcyanogen-dsp \
-    libncurses \
-    bash \
-    PinyinIME \
-    Torch 
-
-# Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    librs_jni 
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-    librs_jni
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs \
-    sdcard \
-    libmtp
-
+    power.tegra
+        
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.com.google.locationfeatures=1 \
-        ro.setupwizard.enable_bypass=1 \
-        dalvik.vm.execution-mode=int:jit \
-        dalvik.vm.lockprof.threshold=500 \
-        dalvik.vm.dexopt-flags=m=y \
-        persist.sys.usb.config=mtp,adb \
-        ro.adb.secure=0
+    ro.com.google.locationfeatures=1 \
+    ro.setupwizard.enable_bypass=1 \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.lockprof.threshold=500 \
+    dalvik.vm.dexopt-flags=m=y \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-        persist.tegra.nvmmlite=1 \
-        ro.vendor.extension_library=/system/lib/libhtc-opt2.so \
-        tf.enable=y
+    persist.tegra.nvmmlite=1 \
+    ro.vendor.extension_library=/system/lib/libhtc-opt2.so \
+    tf.enable=y
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
