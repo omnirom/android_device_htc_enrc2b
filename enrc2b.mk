@@ -35,11 +35,9 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/ramdisk/ueventd.enrc2b.rc:root/ueventd.enrc2b.rc \
     $(LOCAL_PATH)/ramdisk/fstab.enrc2b:root/fstab.enrc2b
 
-# Prebuilt Audio/GPS/Camera/Wi-Fi configs
+# Prebuilt GPS/Camera/Wi-Fi configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nvcamera_2nd.conf:system/etc/nvcamera_2nd.conf \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     $(LOCAL_PATH)/configs/gps/gpsconfig_release.xml:system/etc/gps/gpsconfig_release.xml \
@@ -49,9 +47,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     $(LOCAL_PATH)/configs/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     $(LOCAL_PATH)/configs/calibration:system/etc/calibration \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf \
-    $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf
+    $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
 # Input device configeration files
 # for remapped APP_SWITCH to MENU
