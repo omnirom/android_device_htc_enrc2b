@@ -49,11 +49,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calibration:system/etc/calibration \
     $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
-# Input device configeration files
-# for remapped APP_SWITCH to MENU
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
-
 #Audio packages
 PRODUCT_PACKAGES += \
     libinvensense_mpl
