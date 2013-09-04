@@ -65,6 +65,6 @@ RECOVERY_FSTAB_VERSION := 2
 
 # Device specific SELinux policies
 BOARD_SEPOLICY_DIRS += \
-    device/htc/endeavoru/selinux
+    device/htc/enrc2b/selinux
 
 #BOARD_SEPOLICY_UNION +=
