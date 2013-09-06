@@ -21,7 +21,7 @@ $(call inherit-product, device/htc/enrc2b/full_enrc2b.mk)
 PRODUCT_DEVICE := enrc2b
 PRODUCT_NAME := cm_enrc2b
 PRODUCT_BRAND := htc_europe
-PRODUCT_MODEL := HTC One X+
+PRODUCT_MODEL := One X+
 PRODUCT_MANUFACTURER := HTC
 
 #Set build fingerprint / ID / Product Name etc.
