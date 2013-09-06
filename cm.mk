@@ -4,8 +4,9 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := enrc2b
 
-# Boot animation
-TARGET_BOOTANIMATION_NAME := 720
+# Resolution values for bootanimation
+TARGET_SCREEN_HEIGHT := 720
+TARGET_SCREEN_WIDTH := 1280
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
