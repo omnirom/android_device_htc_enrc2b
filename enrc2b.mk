@@ -93,7 +93,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_LOCALES += en_GB xhdpi
 
-$(call inherit-product-if-exists, vendor/htc/enrc2b/enrc2b-vendor.mk)
+$(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
 
 # common tegra3-HOX+ configs
 $(call inherit-product, device/htc/tegra3-common/tegra3.mk)
