@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<!-- Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,13 +14,10 @@
      limitations under the License.
 -->
 
-<!-- Camera app resources that may need to be customized
-     for different hardware or product builds. -->
 <resources>
-    <!-- HTC Camcorder Mode -->
-    <bool name="needsHTCCamMode">true</bool>
-    <!-- Disable face detection-->
-    <bool name="noFaceDetectOnBackCamera">true</bool>
-    <!-- Disable face detection on the front camera -->
-    <bool name="noFaceDetectOnFrontCamera">true</bool>
+    <!-- Whether or not the dock settings are to be displayed for this device when docked -->
+    <bool name="has_dock_settings">true</bool>
+	<bool name="config_show_volumeRockerWake">true</bool>
+	<!-- LED Flashlight -->
+    <bool name="has_led_flash">true</bool>
 </resources>

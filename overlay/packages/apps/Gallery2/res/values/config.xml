@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!-- Copyright (C) 2012 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,12 +14,14 @@
      limitations under the License.
 -->
 
+<!-- Camera app resources that may need to be customized
+     for different hardware or product builds. -->
 <resources>
-    <!-- Whether or not the dock settings are to be displayed for this device when docked -->
-    <bool name="has_dock_settings">true</bool>
-	<bool name="config_show_volumeRockerWake">true</bool>
-	<!-- LED Flashlight -->
-    <bool name="has_led_flash">true</bool>
-    <!-- Whether or not device settings should be displayed or not for the device -->
-	<bool name="has_advanced_settings">true</bool>
+    <!-- The camera removes the focus modes by default when touch-to-focus
+         exists. Use this option to change that behavior -->
+    <bool name="wantsFocusModes">true</bool>
+    <!-- Allows setting video size before recording starts -->
+    <bool name="needsEarlyVideoSize">true</bool>
+    <!-- HTC Camcorder Mode -->
+    <bool name="needsHTCCamMode">true</bool>
 </resources>
