@@ -251,11 +251,6 @@ on boot
     chmod 755 /data/audio
     chown media audio /data/audio
     
-service pollyd /system/bin/pollyd
-    class main
-    user root
-    group root
-    
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys/
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     disabled
