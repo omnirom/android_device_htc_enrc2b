@@ -1,4 +1,5 @@
 import init.tegra3-common.rc
+import init.superuser.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -39,7 +40,7 @@ on fs
     chmod 0660 /rfs
     setprop ro.crypto.fuse_sdcard true
     setprop ro.crypto.umount_sd false
-	
+    
 on post-fs-data
     # We will remap this as /storage/sdcard0 with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
@@ -47,7 +48,6 @@ on post-fs-data
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
-
 
 on boot
     # Setup paths used for socket communication with the dhcp daemon(dhcpd)
@@ -83,6 +83,59 @@ on boot
     chown radio radio /sys/class/power_supply/battery/phone_call
     chmod 0660 /sys/class/power_supply/battery/phone_call
 
+# Kernel Tweaking
+    write /proc/sys/kernel/panic_on_oops 0
+    write /proc/sys/kernel/hung_task_timeout_secs 0
+    write /proc/cpu/alignment 4
+    write /proc/sys/kernel/sched_latency_ns 10000000
+    write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+    write /proc/sys/kernel/sched_compat_yield 1
+    write /proc/sys/kernel/sched_child_runs_first 0
+    write /proc/sys/kernel/randomize_va_space 2
+    write /proc/sys/kernel/kptr_restrict 2
+    write /proc/sys/kernel/dmesg_restrict 1
+    write /proc/sys/vm/mmap_min_addr 32768
+    write /proc/sys/net/ipv4/ping_group_range "0 2147483647"
+    write /proc/sys/kernel/sched_rt_runtime_us 950000
+    write /proc/sys/kernel/sched_rt_period_us 1000000
+
+# Memory management.  Basic kernel parameters, and allow the high
+# level system server to be able to adjust the kernel OOM driver
+# parameters to match how it is managing things.
+    write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
+    write /proc/sys/vm/dirty_ratio 55
+    write /proc/sys/vm/dirty_writeback_centisecs 2000
+    write /proc/sys/vm/drop_caches 2
+    write /proc/sys/vm/min_free_kbytes 5120
+    write /proc/sys/vm/min_free_order_shift 3
+    write /proc/sys/vm/oom_kill_allocating_task 1
+    write /proc/sys/vm/page-cluster 3
+    write /proc/sys/vm/panic_on_oom 0
+    write /proc/sys/vm/swappiness 40
+    write /proc/sys/vm/vfs_cache_pressure 70
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+    
+# LowMem reserve it is Currently set to 12MB
+    #write /proc/sys/vm/lowmem_reserve_ratio "128 128"
+
+# Tweak background writeout
+    write /proc/sys/vm/dirty_expire_centisecs 1400
+    write /proc/sys/vm/dirty_background_ratio  60
+
+# allow system to modify ksm control files
+    chown root system /sys/kernel/mm/ksm/pages_to_scan
+    chmod 0664 /sys/kernel/mm/ksm/pages_to_scan
+    chown root system /sys/kernel/mm/ksm/sleep_millisecs
+    chmod 0664 /sys/kernel/mm/ksm/sleep_millisecs
+    chown root system /sys/kernel/mm/ksm/run
+    chmod 0664 /sys/kernel/mm/ksm/run
+    write /sys/kernel/mm/ksm/sleep_millisecs 1500
+    write /sys/kernel/mm/ksm/pages_to_scan 256
+
 # For Flashlight Restriction
     chown radio system /sys/camera_led_status/led_ril_status
     chown system system /sys/camera_led_status/led_wimax_status
@@ -95,9 +148,9 @@ on boot
     chmod 0666 /proc/net/xt_qtaguid/ctrl
 
 # Wifi: Disable the IPv6 of p2p0 interface
-	write /proc/sys/net/ipv6/conf/p2p0/disable_ipv6 1
-	
-	chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
+    write /proc/sys/net/ipv6/conf/p2p0/disable_ipv6 1
+    
+    chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
 # Load modules while booting 
@@ -160,23 +213,6 @@ on boot
 # backlight
     chown system system /sys/class/backlight/tegra-pwm-bl/brightness
 
-# leds
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/amber/brightness
-    chown system system /sys/class/leds/amber/blink
-	chown system system /sys/class/leds/button-backlight/slow_blink
-
-#S2W
-	chown system system /sys/android_touch/sweep2wake
-	chown system system /sys/android_touch/s2w_min_distance
-	chown system system /sys/android_touch/s2w_allow_stroke
-    chown system system /sys/android_touch/s2w_register_threshold
-	chown system system /sys/android_touch/s2w_allow_double_tap
-    chown system system /sys/android_touch/s2w_double_tap_duration
-    chown system system /sys/android_touch/s2w_double_tap_threshold
-    chown system system /sys/android_touch/s2w_double_tap_barrier_y
-		
 # didim
     chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
@@ -219,7 +255,7 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
 
     write /sys/module/cpu_tegra3/parameters/auto_hotplug 1
-	write /sys/kernel/debug/tegra_hotplug/max_cpus 4
+    write /sys/kernel/debug/tegra_hotplug/max_cpus 4
     write /sys/module/cpu_tegra3/parameters/no_lp 0
     #write /sys/module/tegra3_emc/parameters/emc_enable 0
     write /sys/module/cpuidle/parameters/lp2_in_idle 1
@@ -235,7 +271,7 @@ on boot
     write /sys/block/mmcblk0/queue/read_ahead_kb 1024
     write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
     
-    # Flash storage isn't a good entropy source, and only causes locking	
+    # Flash storage isn't a good entropy source, and only causes locking    
     # overhead in the kernel. Turn it off
     write /sys/block/mmcblk0/queue/add_random 0
 
@@ -250,6 +286,11 @@ on boot
     mkdir /data/audio
     chmod 755 /data/audio
     chown media audio /data/audio
+    
+service pollyd /system/bin/pollyd
+    class main
+    user root
+    group root
     
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys/
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
@@ -302,8 +343,8 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
-	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
-	-ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -puse_p2p_group_interface=1
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
+    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -puse_p2p_group_interface=1
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
 #   user wifi
@@ -399,14 +440,14 @@ on property:service.htc_ebdlogd.enable=0
     stop htc_ebdlogd
 
 service cand /system/bin/cand
-	class main
-	user root
+    class main
+    user root
 
 service post_boot /system/bin/sh /system/etc/post_boot.sh
-	class main
-	user root
-	disabled
-	oneshot
+    class main
+    user root
+    disabled
+    oneshot
 
 on property:init.svc.bootanim=stopped
    start post_boot
@@ -446,31 +487,6 @@ on property:ro.hdmi.enable=true
     chmod 0660 /sys/power/state
     chmod 0660 /sys/power/wake_lock
     chmod 0660 /sys/power/wake_unlock
-
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost_factor
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/boost_factor
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/max_boost
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/max_boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/sustain_load
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/isustain_load
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    chmod 0664 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
 
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -655,3 +671,10 @@ service userinit /system/xbin/busybox run-parts /system/etc/init.d
     class late_start
     user root
     group root
+
+# Compcache - handle at boot
+service compcache /system/bin/handle_compcache
+    class main
+    user root
+    group root
+    oneshot
