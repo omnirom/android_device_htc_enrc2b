@@ -52,9 +52,9 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Try to build the kernel
-#TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
-#TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
-TARGET_PREBUILT_KERNEL := device/htc/enrc2b/kernel
+TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
+TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
+#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/kernel
 
 # dont build docs
 DISABLE_DROIDDOC := true
