@@ -77,8 +77,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
-    persist.sys.usb.config=mtp,adb \
-    ro.adb.secure=0
+    persist.sys.usb.config=mtp,adb
+
+#Performance tuning (http://source.android.com/devices/tuning.html)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.disable_scissor_opt=true \
+    ro.hwui.texture_cache_size=32 \
+    ro.hwui.layer_cache_size=24
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
