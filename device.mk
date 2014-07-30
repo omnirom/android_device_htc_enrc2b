@@ -1,4 +1,4 @@
-#
+  #
 # Copyright (C) 2012 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
     sdcard \
     libmtp
 
-# Hostapd   
+# Hostapd
 PRODUCT_PACKAGES += \
     hostapd_cli \
     calibrator
@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
 #NFC
 PRODUCT_PACKAGES += \
     libnfc_ndef
-        
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.setupwizard.enable_bypass=1 \
