@@ -32,7 +32,7 @@ $(call inherit-product, device/htc/enrc2b/device.mk)
 PRODUCT_NAME := omni_enrc2b
 PRODUCT_DEVICE := enrc2b
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := Find 5
+PRODUCT_MODEL := One X+
 PRODUCT_MANUFACTURER := Htc
 
 # Kernel inline build
