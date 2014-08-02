@@ -63,7 +63,7 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 # Recovery
 TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
 #RECOVERY_FSTAB_VERSION := 2
-TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.twrp.rc
+#TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.recovery.enrc2b.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_SDCARD_INTERNAL := true
