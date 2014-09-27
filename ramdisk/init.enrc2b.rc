@@ -532,7 +532,29 @@ on property:ro.hdmi.enable=true
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
->>>>>>> 3aa349b... Fix LED Battery and Notifications, Fix Button Recent APP and More..
+on property:sys.usb.config=none
+ stop adbd
+ write /sys/class/android_usb/android0/enable 0
+ write /sys/class/android_usb/android0/bDeviceClass 0
+
+on property:sys.usb.config=mtp,adb
+ stop adbd
+ write /sys/class/android_usb/android0/enable 0
+ write /sys/class/android_usb/android0/idVendor 0B05
+ write /sys/class/android_usb/android0/idProduct 4C91
+ write /sys/class/android_usb/android0/functions mtp,adb
+ write /sys/class/android_usb/android0/enable 1
+ start adbd
+
+on property:sys.usb.config=adb
+ stop adbd
+ write /sys/class/android_usb/android0/enable 0
+ write /sys/class/android_usb/android0/idVendor 0B05
+ write /sys/class/android_usb/android0/idProduct 4D03
+ write /sys/class/android_usb/android0/functions adb
+ write /sys/class/android_usb/android0/enable ${service.adb.root}
+ start adbd
+
 service choice_fn /sbin/choice_fn
     oneshot
 
