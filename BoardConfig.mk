@@ -37,6 +37,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/enrc2b/bluetooth
 # HTC ril compatability
 TARGET_PROVIDES_LIBRIL := device/htc/enrc2b/proprietary/lib/libhtc-ril.so
 
+# Camera
+ADD_LEGACY_SET_POSITION_SYMBOL := true
+
 # Kernel / Ramdisk
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -59,9 +62,9 @@ TARGET_KERNEL_CONFIG := omni_enrc2b_defconfig
 DISABLE_DROIDDOC := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
+#TARGET_RECOVERY_FSTAB := device/htc/enrc2b/recovery/twrp.fstab
 #RECOVERY_FSTAB_VERSION := 2
-#TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.recovery.enrc2b.rc
+TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.recovery.enrc2b.rc
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_SDCARD_INTERNAL := true
