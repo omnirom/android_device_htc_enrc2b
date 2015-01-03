@@ -47,19 +47,16 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 2302672896
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Boot/Recovery image settings
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+#BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-# Inline Kernel
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
+# Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
 TARGET_KERNEL_CONFIG := omni_enrc2b_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
-
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
@@ -69,7 +66,6 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_SDCARD_INTERNAL := true
 
-
 # TWRP
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 DEVICE_RESOLUTION := 720x1280
@@ -78,7 +74,7 @@ BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_NO_REBOOT_RECOVERY := true
-#TW_INCLUDE_JB_CRYPTO := true
+TW_INCLUDE_JB_CRYPTO := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_CRYPTO_FS_TYPE := "ext4"
@@ -87,3 +83,17 @@ TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_FS_OPTIONS := "data=ordered,delalloc"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
+
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
+# Device specific SELinux policies
+BOARD_SEPOLICY_DIRS += \
+		device/htc/enrc2b/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+		file_contexts \
+		akmd.te \
+		init_shell.te \
+		navl_server.te \
+		uim_sysfs.te \
+		system_server.te \
